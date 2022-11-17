@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace PP_11
-{
+{//хуй
     internal class Troll : MistikCreature
     {
         //can fight with human if human luck more than 7...
