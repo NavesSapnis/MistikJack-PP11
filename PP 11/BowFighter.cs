@@ -10,7 +10,7 @@ namespace PP_11
     {
         private string bowType;
         private int damageByBow;
-
+        //
         public string BowType
         {
             get { return bowType; }
