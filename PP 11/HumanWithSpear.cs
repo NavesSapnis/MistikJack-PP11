@@ -16,7 +16,8 @@ namespace PP_11
             get { return damageBySpear; }
             set { damageBySpear = value; }//any value
         }
-        public HumanWithSpear(string name, int age, int healPts, int damage, int luck, string secondName, int money, int damageBySpear) : base(name, age, healPts, damage, luck, secondName, money)
+        public HumanWithSpear(string name, int age, int healPts, int damage, int luck,
+            string secondName, int money, int damageBySpear) : base(name, age, healPts, damage, luck, secondName, money)
         {
             this.damage = damage + damageBySpear;
         }
@@ -24,7 +25,15 @@ namespace PP_11
 
         public override void PrintInfo()
         {
-            Console.WriteLine($"Класс: Крестьянин с копьем\nИмя = {name}\nФамилия = {secondName}\nВозраст = {age}\nЗдоровье = {healPts}\nУрон = {damage}\nУдача = {luck}\nДеньги = {money} $");
+            Console.WriteLine($"Класс: Крестьянин с копьем\nИмя = {name}\nФамилия = {secondName}\nВозраст = {age}" +
+                $"\nЗдоровье = {healPts}\nУрон = {damage}\nУдача = {luck}\nДеньги = {money} $");
+        }
+        public override Human Create()
+        {
+            Random rand = new Random();
+            HumanWithSpear humanWithSpear = new HumanWithSpear("Jack", rand.Next(1, 99), rand.Next(1, 10000), rand.Next(1, 999),
+                rand.Next(1, 10), "Jackson", 100, rand.Next(1, 999));
+            return humanWithSpear;
         }
     }
 }

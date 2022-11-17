@@ -20,13 +20,15 @@ namespace PP_11
 
         public static void Discription(string type)
         {
-            Console.WriteLine($"Вы выбрали {type}, чтобы спасти принцесу вам придется победить какое-то мистическое существо\nИдя по болоту вы натыкакетесь на ");
+            Console.WriteLine($"Вы выбрали {type}," +
+                $" чтобы спасти принцесу вам придется победить какое-то мистическое существо\nИдя по болоту вы натыкакетесь на... ");
         }
         static void Main(string[] args)
         {
             Random rand = new Random();
             MistikCreature[] mistikCreatures= new MistikCreature[3];
-            mistikCreatures[0] = new Dragon("Крассный рогнарос", 341, 8800, 666, 1, "С высокой вероятностью убежит, если ему нанести более 2.000 ед. урона", "Уменьшение урона каждый ход на 22 ед.", "Красный - огненный", 100);
+            mistikCreatures[0] = new Dragon("Крассный рогнарос", 341, 8800, 666, 1, "С высокой вероятностью убежит, если ему нанести" +
+                " более 2.000 ед. урона", "Уменьшение урона каждый ход на 22 ед.", "Красный - огненный", 100);
             mistikCreatures[1] = new Goblin().Create();
             mistikCreatures[2] = new Troll().Create();
             MistikCreature enemy = mistikCreatures[rand.Next(0, 2)];

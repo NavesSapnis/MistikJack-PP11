@@ -42,7 +42,8 @@ namespace PP_11
 
             }
         }
-        public Knight(string name, int age, int healPts, int damage, int luck, string secondName, int money, int swordDamage, string swordType, int lightArmor) : base(name, age, healPts, damage, luck, secondName, money)
+        public Knight(string name, int age, int healPts, int damage, int luck, string secondName,
+            int money, int swordDamage, string swordType, int lightArmor) : base(name, age, healPts, damage, luck, secondName, money)
         {
             this.damage = damage + swordDamage;
             this.swordType = swordType;
@@ -52,7 +53,16 @@ namespace PP_11
 
         public override void PrintInfo()
         {
-            Console.WriteLine($"Класс: Рыцарь\nИмя = {name}\nФамилия = {secondName}\nВозраст = {age}\nЗдоровье = {healPts}\nУрон = {damage}\nУдача = {luck}\nДеньги = {money} $");
+            Console.WriteLine($"Класс: Рыцарь\nИмя = {name}\nФамилия = {secondName}\nВозраст = {age}" +
+                $"\nЗдоровье = {healPts}\nУрон = {damage}\nУдача = {luck}\nДеньги = {money} $");
+        }
+        public override Human Create()
+        {
+            Random rand = new Random();
+            Knight knight = new Knight("Jack", rand.Next(1, 99), rand.Next(1, 10000), rand.Next(1, 999),
+                rand.Next(1, 10), "Jackson", 100,rand.Next(1,1000), "Деревянный меч", rand.Next(1, 1000));
+            return knight;
+
         }
     }
 }

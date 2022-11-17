@@ -33,12 +33,15 @@ namespace PP_11
 
         public override void PrintInfo()
         {
-            Console.WriteLine($"Класс: Мистическое существо\nИмя = {name}\nВозраст = {age}\nЗдоровье = {healPts}\nУрон = {damage}\nУдача = {luck}\nБазовый талант = {baseTalent}\nУльтимативный талант = {ultiTalent}");
+            Console.WriteLine($"Класс: Мистическое существо\nИмя = {name}\nВозраст = {age}" +
+                $"\nЗдоровье = {healPts}\nУрон = {damage}\nУдача = {luck}" +
+                $"\nБазовый талант = {baseTalent}\nУльтимативный талант = {ultiTalent}");
         }
         public virtual MistikCreature Create()
         {
             Random rand = new Random();
-            MistikCreature nothing = new MistikCreature("nothing", rand.Next(1,99), rand.Next(1,10000), rand.Next(1,999), rand.Next(1,10), "-", "-");
+            MistikCreature nothing = new MistikCreature("nothing", rand.Next(1,99), 
+                rand.Next(1,10000), rand.Next(1,999), rand.Next(1,10), "-", "-");
             return nothing;
         }
     }

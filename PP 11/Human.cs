@@ -44,7 +44,14 @@ namespace PP_11
         public Human() { }
         public override void PrintInfo()
         {
-            Console.WriteLine($"Класс: Человек\nИмя = {name}\nФамилия = {secondName}\nВозраст = {age}\nЗдоровье = {healPts}\nУрон = {damage}\nУдача = {luck}\nДеньги = {money} $");
+            Console.WriteLine($"Класс: Человек\nИмя = {name}\nФамилия = {secondName}\nВозраст = {age}" +
+                $"\nЗдоровье = {healPts}\nУрон = {damage}\nУдача = {luck}\nДеньги = {money} $");
+        }
+        public virtual Human Create()
+        {
+            Random rand = new Random();
+            Human nothing = new Human("nothing", rand.Next(1, 99), rand.Next(1, 10000), rand.Next(1, 999), rand.Next(1, 10), "nothing", 100);
+            return nothing;
         }
         
 
