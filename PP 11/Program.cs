@@ -14,29 +14,29 @@ namespace PP_11
         public static int Menu()
         {
             Console.WriteLine("Выберите пункт меню\n1 - Выбрать Персонажа\n2 - Вывести характеристики персонажа" +
-                "\n3 - В БОЙ!\n4 - Зайти в магазин");
+                "\n3 - В БОЙ!\n4 - Зайти в магазин\n5 - Вывести массив уродцев\n6 - Найти максимальный/минимальный по урону\n7 - Отсортировать по имени");
             int ret = Convert.ToInt32(Console.ReadLine());
             return ret;
         }
 
-        public static void Discription(string type)
-        {
-            Console.WriteLine($"Вы выбрали {type}," +
-                $" чтобы спасти принцесу вам придется победить какое-то мистическое существо\nИдя по болоту вы натыкакетесь на... ");
-        }
         static void Main(string[] args)
         {
             Random rand = new Random();
 
             MistikCreature[] enemies = new MistikCreature[3];
-            enemies[0] = new Dragon("Крассный рогнарос", 341, 8800, 666, 1, "С высокой вероятностью убежит, если ему нанести более 2.000 ед. урона", "Уменьшение урона каждый ход на 22 ед.", "Красный - огненный", 100); enemies[1] = new Goblin().Create(); enemies[2] = new Troll().Create();
+            enemies[0] = new Dragon("Крассный рогнарос", 341, 8800, 666, 1, 
+                "С высокой вероятностью убежит, если ему нанести более 2.000 ед. урона", 
+                "Уменьшение урона каждый ход на 22 ед.", "Красный - огненный", 100); 
+            enemies[1] = new Goblin().Create(); enemies[2] = new Troll().Create();
             MistikCreature enemy = enemies[rand.Next(0, 3)];
 
             Human[] heroes = new Human[3];
             Human hero = new Human();
+
             ShopItems shopItems = new ShopItems();
             shopItems = shopItems.CreateShop();
 
+            AllClass allClass = new AllClass(enemies);
             while (true)
             {
                 try
@@ -55,16 +55,13 @@ namespace PP_11
                                     break;
                                 case 2:
                                     BowFighter bowFighter = new BowFighter();
-                                    Discription("Лучник");
                                     hero = bowFighter.Create();
                                     break;
                                 case 3:
                                     HumanWithSpear farmer = new HumanWithSpear();
-                                    Discription("Крестьянин к копьем");
                                     hero = farmer.Create();
                                     break;
                             }
-                            //enemy.PrintInfo();
                             break;
                         case 2:
                             Console.Clear();
@@ -72,7 +69,7 @@ namespace PP_11
                             break;
                         case 3:
                             Console.Clear();
-                            while (hero.HealPts >= 0 || enemy.HealPts >= 0)
+                            while (true)
                             {
                                 enemy.PrintInfo();
                                 var trollCheck = enemy.GetType();
@@ -83,9 +80,28 @@ namespace PP_11
                                 }
                                 else
                                 {
+                                    if (enemy.HealPts <= 0)
+                                    {
+                                        Console.WriteLine("Победа!!!");
+                                        System.Threading.Thread.Sleep(5000);
+                                        Console.Clear();
+                                        break;
+                                    }
+                                    else if(hero.HealPts <= 0)
+                                    {
+                                        Console.WriteLine("К сожалениею в этот раз вам не удалось спасти принцесу");
+                                        System.Threading.Thread.Sleep(5000);
+                                        Console.Clear();
+                                        break;
+                                    }
+                                    
                                     hero.Attack(enemy);
-                                    Console.WriteLine("...");
-                                    System.Threading.Thread.Sleep(50000);
+                                    System.Threading.Thread.Sleep(1000);
+
+                                    Console.Clear();
+                                    enemy.Attack(hero);
+                                    System.Threading.Thread.Sleep(1000);
+                                    Console.Clear();
                                 }
                             }
                             break;
@@ -141,6 +157,15 @@ namespace PP_11
                                 default:
                                     break;
                             }
+                            break;
+                        case 5:
+                            
+                            break;
+                        case 6:
+                            
+                            Console.WriteLine(allClass.MinDamage());
+                            break;
+                        case 7:
                             break;
                         default:
                             Console.Clear();

@@ -32,7 +32,7 @@ namespace PP_11
         {
             for (int i = 0; i < items.Length; i++)
             {
-                Console.WriteLine(items[i]);
+                Console.WriteLine((i+1)+" "+items[i]);
             }
         }
     }

@@ -82,6 +82,10 @@ namespace PP_11
                 }
             }
         }
+        public override string ToString()
+        {
+            return $"Имя = {name} Взраст = {age} Здоровье = {healPts} Урон = {damage} Удача = {luck}";
+        }
         public abstract void PrintInfo();
         public void Attack(Creature someOne)
         {
