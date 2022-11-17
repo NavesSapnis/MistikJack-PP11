@@ -46,8 +46,8 @@ namespace PP_11
         public override Human Create()
         {
             Random rand = new Random();
-            BowFighter bowFighter = new BowFighter("Jack", rand.Next(1, 99), rand.Next(1, 10000), rand.Next(1, 999),
-                rand.Next(1, 10), "Jackson", 100, "Деревянный лук", rand.Next(1, 1000));
+            BowFighter bowFighter = new BowFighter("Jack", rand.Next(10, 50), rand.Next(2000, 6000), rand.Next(1000, 2000),
+                rand.Next(5, 10), "Jackson", 0, "Деревянный лук", rand.Next(1, 300));
             return bowFighter;
         }
     }

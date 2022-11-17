@@ -52,8 +52,8 @@ namespace PP_11
                 "Умирая, отравляет область около себя",
                 "Можно нанять за определенную плату", 
                 "Имеет склонность к обману" };
-            Goblin goblin = new Goblin("base goblin", rand.Next(1, 99), rand.Next(1, 10000), 
-                rand.Next(1, 999), rand.Next(1, 10), baseDiscription[rand.Next(0,2)], ultiDiscription[rand.Next(0,2)], rand.Next(1, 5));
+            Goblin goblin = new Goblin("base goblin", rand.Next(10, 99), rand.Next(1, 7000), 
+                rand.Next(1000, 1200), 10, baseDiscription[rand.Next(0,3)], ultiDiscription[rand.Next(0,3)], rand.Next(1, 5));
             return goblin;
         }
     }

@@ -13,7 +13,8 @@ namespace PP_11
     {
         public static int Menu()
         {
-            Console.WriteLine("Выберите пункт меню\n1 - выбрать Персонажа");
+            Console.WriteLine("Выберите пункт меню\n1 - Выбрать Персонажа\n2 - Вывести характеристики персонажа" +
+                "\n3 - В БОЙ!\n4 - Зайти в магазин");
             int ret = Convert.ToInt32(Console.ReadLine());
             return ret;
         }
@@ -26,12 +27,15 @@ namespace PP_11
         static void Main(string[] args)
         {
             Random rand = new Random();
-            MistikCreature[] mistikCreatures= new MistikCreature[3];
-            mistikCreatures[0] = new Dragon("Крассный рогнарос", 341, 8800, 666, 1, "С высокой вероятностью убежит, если ему нанести" +
-                " более 2.000 ед. урона", "Уменьшение урона каждый ход на 22 ед.", "Красный - огненный", 100);
-            mistikCreatures[1] = new Goblin().Create();
-            mistikCreatures[2] = new Troll().Create();
-            MistikCreature enemy = mistikCreatures[rand.Next(0, 2)];
+
+            MistikCreature[] enemies = new MistikCreature[3];
+            enemies[0] = new Dragon("Крассный рогнарос", 341, 8800, 666, 1, "С высокой вероятностью убежит, если ему нанести более 2.000 ед. урона", "Уменьшение урона каждый ход на 22 ед.", "Красный - огненный", 100); enemies[1] = new Goblin().Create(); enemies[2] = new Troll().Create();
+            MistikCreature enemy = enemies[rand.Next(0, 3)];
+
+            Human[] heroes = new Human[3];
+            Human hero = new Human();
+            ShopItems shopItems = new ShopItems();
+
             while (true)
             {
                 try
@@ -46,32 +50,48 @@ namespace PP_11
                             {
                                 case 1:
                                     Knight knight = new Knight();
-                                    Discription("Рыцарь");
-                                    
+                                    hero = knight.Create();
                                     break;
                                 case 2:
                                     BowFighter bowFighter = new BowFighter();
                                     Discription("Лучник");
-                                    //enemy.PrintInfo();
+                                    hero = bowFighter.Create();
                                     break;
                                 case 3:
                                     HumanWithSpear farmer = new HumanWithSpear();
                                     Discription("Крестьянин к копьем");
-                                    //enemy.PrintInfo();
+                                    hero = farmer.Create();
                                     break;
                             }
-                            enemy.PrintInfo();
+                            //enemy.PrintInfo();
                             break;
                         case 2:
-
+                            Console.Clear();
+                            hero.PrintInfo();
                             break;
                         case 3:
                             Console.Clear();
-
+                            while (hero.HealPts >= 0 || enemy.HealPts >= 0)
+                            {
+                                enemy.PrintInfo();
+                                var trollCheck = enemy.GetType();
+                                if (trollCheck == typeof(Troll) && hero.Luck >= 7)
+                                {
+                                    Console.WriteLine("Вы слишком удачливы, противник перешен на вашу сторону. Победа !!!");
+                                    break;
+                                }
+                                else
+                                {
+                                    hero.Attack(enemy);
+                                    Console.WriteLine("...");
+                                    System.Threading.Thread.Sleep(50000);
+                                }
+                            }
                             break;
                         case 4:
                             Console.Clear();
-
+                            Console.WriteLine("");
+                            shopItems.PrintShop();
                             break;
                         default:
                             Console.Clear();
@@ -94,7 +114,7 @@ namespace PP_11
             //Knight knight = new Knight("Олег", 21, 1000, 200, 2, "Крутой", 333, 120, "Деревянный меч", 200);
             //Console.WriteLine("\n\n\n\n");
             //goblin.Attack(knight);
-            
+
 
 
         }

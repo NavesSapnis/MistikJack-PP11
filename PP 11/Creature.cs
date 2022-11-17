@@ -40,7 +40,7 @@ namespace PP_11
             get { return healPts; }
             set
             {
-                if (value < 0 || value > 10000)
+                if (value > 100000)
                 {
                     Console.WriteLine("У вас слишком много хп, для баланса мы их уменьшим xd");
                     HealPts = 1000;
@@ -89,5 +89,6 @@ namespace PP_11
             someOne.HealPts -= this.Damage;
             Console.WriteLine($"Здоровье цели после удара = {someOne.HealPts} ");
         }
+
     }
 }

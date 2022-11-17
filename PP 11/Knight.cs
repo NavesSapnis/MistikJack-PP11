@@ -59,8 +59,8 @@ namespace PP_11
         public override Human Create()
         {
             Random rand = new Random();
-            Knight knight = new Knight("Jack", rand.Next(1, 99), rand.Next(1, 10000), rand.Next(1, 999),
-                rand.Next(1, 10), "Jackson", 100,rand.Next(1,1000), "Деревянный меч", rand.Next(1, 1000));
+            Knight knight = new Knight("Jack", rand.Next(18, 40), rand.Next(5000, 10000), rand.Next(500, 1200),
+                rand.Next(1, 6), "Jackson", rand.Next(1,100),rand.Next(1,1000), "Деревянный меч", rand.Next(200, 1000));
             return knight;
 
         }

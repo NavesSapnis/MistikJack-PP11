@@ -37,9 +37,17 @@ namespace PP_11
         }
         public override MistikCreature Create()
         {
+            string[] baseDiscription = {
+                "Имеет скрытую способность к воровству",
+                "Легко залечивает раны",
+                "Имеет вероятность избежать драки" };
+            string[] ultiDiscription = {
+                "Умирая, отравляет область около себя",
+                "Можно нанять за определенную плату",
+                "Имеет склонность к обману" };
             Random rand = new Random();
-            Dragon dragon = new Dragon("base dragon", rand.Next(1, 99), rand.Next(1, 10000),
-                rand.Next(1, 999), rand.Next(1, 10), "-", "-","-", rand.Next(1, 200));
+            Dragon dragon = new Dragon("base dragon", rand.Next(50, 99), rand.Next(5000, 10000),
+                rand.Next(1000, 6000), rand.Next(1, 5), baseDiscription[rand.Next(0,3)], ultiDiscription[rand.Next(0, 3)], "Зеленый", rand.Next(-1000, 2000));
             return dragon;
         }
     }

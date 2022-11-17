@@ -53,7 +53,8 @@ namespace PP_11
                 "Умирая, отравляет область около себя",
                 "Можно нанять за определенную плату", 
                 "Имеет склонность к обману" };
-            Troll troll = new Troll("base troll", rand.Next(1, 99), rand.Next(1, 10000), rand.Next(1, 999), rand.Next(1, 10), baseDiscription[rand.Next(0, 2)], ultiDiscription[rand.Next(0, 2)], rand.Next(1, 100));
+            Troll troll = new Troll("base troll", rand.Next(10, 99), rand.Next(1000, 10000), rand.Next(200, 500), 
+                rand.Next(1, 2), baseDiscription[rand.Next(0, 3)], ultiDiscription[rand.Next(0, 3)], rand.Next(1, 10000));
             return troll;
         }
     }

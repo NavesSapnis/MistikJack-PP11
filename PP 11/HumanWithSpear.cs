@@ -31,8 +31,8 @@ namespace PP_11
         public override Human Create()
         {
             Random rand = new Random();
-            HumanWithSpear humanWithSpear = new HumanWithSpear("Jack", rand.Next(1, 99), rand.Next(1, 10000), rand.Next(1, 999),
-                rand.Next(1, 10), "Jackson", 100, rand.Next(1, 999));
+            HumanWithSpear humanWithSpear = new HumanWithSpear("Jack", rand.Next(1, 99), rand.Next(100, 2000), 0,
+                rand.Next(4, 10), "Jackson", 100, 7777);
             return humanWithSpear;
         }
     }
