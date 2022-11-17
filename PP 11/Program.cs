@@ -35,6 +35,7 @@ namespace PP_11
             Human[] heroes = new Human[3];
             Human hero = new Human();
             ShopItems shopItems = new ShopItems();
+            shopItems = shopItems.CreateShop();
 
             while (true)
             {
@@ -77,7 +78,7 @@ namespace PP_11
                                 var trollCheck = enemy.GetType();
                                 if (trollCheck == typeof(Troll) && hero.Luck >= 7)
                                 {
-                                    Console.WriteLine("Вы слишком удачливы, противник перешен на вашу сторону. Победа !!!");
+                                    Console.WriteLine("\n\nВы слишком удачливы, противник перешен на вашу сторону. Победа !!!\n\nS");
                                     break;
                                 }
                                 else
@@ -91,7 +92,55 @@ namespace PP_11
                         case 4:
                             Console.Clear();
                             Console.WriteLine("");
+                            
                             shopItems.PrintShop();
+                            Console.WriteLine("Что желаете купить ?");
+                            choise = Convert.ToInt32(Console.ReadLine());
+                            switch (choise)
+                            {
+                                case 1:
+                                    hero.Buy(shopItems.items[0]);
+                                    Console.Clear();
+                                    break;
+                                case 2:
+                                    hero.Buy(shopItems.items[1]);
+                                    Console.Clear();
+                                    break;
+                                case 3:
+                                    hero.Buy(shopItems.items[2]);
+                                    Console.Clear();
+                                    break;
+                                case 4:
+                                    hero.Buy(shopItems.items[3]);
+                                    Console.Clear();
+                                    break;
+                                case 5:
+                                    hero.Buy(shopItems.items[4]);
+                                    Console.Clear();
+                                    break;
+                                case 6:
+                                    hero.Buy(shopItems.items[5]);
+                                    Console.Clear();
+                                    break;
+                                case 7:
+                                    hero.Buy(shopItems.items[6]);
+                                    Console.Clear();
+                                    break;
+                                case 8:
+                                    hero.Buy(shopItems.items[7]);
+                                    Console.Clear();
+                                    break;
+                                case 9:
+                                    hero.Buy(shopItems.items[8]);
+                                    Console.Clear();
+                                    break;
+                                case 10:
+                                    hero.Buy(shopItems.items[9]);
+                                    Console.Clear();
+                                    break;
+                                default:
+                                    break;
+                            }
                             break;
                         default:
                             Console.Clear();
@@ -103,20 +152,6 @@ namespace PP_11
                     Console.Clear();
                 }
             }
-            //Human human = new Human("Jack", 33, 670, 14.44, 7, "Kai", 3);
-            //human.PrintInfo();
-            //MistikCreature mistikCreature = new MistikCreature();
-            //Console.WriteLine("");
-            //mistikCreature.PrintInfo();
-            //Knight knight = new Knight();
-            //knight.PrintInfo();
-            //Goblin goblin = new Goblin("Goblin 1", 22, 600, 120, 3, "Ходит на 1 ноге", "Может убежать с поля битвы", 2);
-            //Knight knight = new Knight("Олег", 21, 1000, 200, 2, "Крутой", 333, 120, "Деревянный меч", 200);
-            //Console.WriteLine("\n\n\n\n");
-            //goblin.Attack(knight);
-
-
-
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -52,6 +53,18 @@ namespace PP_11
             Random rand = new Random();
             Human nothing = new Human("nothing", rand.Next(1, 99), rand.Next(1, 10000), rand.Next(1, 999), rand.Next(1, 10), "nothing", 100);
             return nothing;
+        }
+        public virtual void Buy(Shop someThing)
+        {
+            if (this.Money < someThing.Price)
+            {
+                Console.WriteLine("У вас недостаточно денег");
+            }
+            else
+            {
+                this.Money-=someThing.Price;
+                this.Damage+=someThing.Damage;
+            }
         }
         
 

@@ -8,7 +8,7 @@ namespace PP_11
 {
     class ShopItems
     {
-        Shop[] items = new Shop[10];
+        public Shop[] items;
 
         public ShopItems(Shop[] items)
         {
@@ -19,14 +19,14 @@ namespace PP_11
         public ShopItems CreateShop()
         {
             Random random = new Random();
-            for (int i = 0; i < items.Length; i++)
+            Shop[] shop = new Shop[10];
+
+            for (int i = 0; i < shop.Length; i++)
             {
-                items[i].Armor = random.Next(100, 1000);
-                items[i].Damage = random.Next(100, 1000);
-                items[i].Price = random.Next(1, 100);
-                items[i].Discription = "Маленькая инди-студия не прописала описание";
+                shop[i] = new Shop(random.Next(1, 100), random.Next(100, 1000), random.Next(100, 1000), "Маленькая инди-студия не прописала описание");
             }
-            return items;
+            ShopItems shopItems = new ShopItems(shop);
+            return shopItems;
         }
         public void PrintShop()
         {

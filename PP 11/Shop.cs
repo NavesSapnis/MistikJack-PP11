@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace PP_11
 {
@@ -43,7 +44,10 @@ namespace PP_11
             this.discription = discription;
         }
         public Shop() {}
-    
 
+        public override string ToString()
+        {
+            return $"Цена = {price} Урон = {damage} Броня = {armor} Описане = {null}";
+        }
     }
 }

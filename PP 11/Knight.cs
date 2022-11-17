@@ -64,5 +64,18 @@ namespace PP_11
             return knight;
 
         }
+        public override void Buy(Shop someThing)
+        {
+            if (this.Money < someThing.Price)
+            {
+                Console.WriteLine("У вас недостаточно денег");
+            }
+            else
+            {
+                this.Money -= someThing.Price;
+                this.Damage += someThing.Damage;
+                this.LightArmor += someThing.Armor;
+            }
+        }
     }
 }

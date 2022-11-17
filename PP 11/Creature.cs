@@ -56,9 +56,9 @@ namespace PP_11
             get { return damage; }
             set
             {
-                if (value < 0 || value > 1000)
+                if (value < 0 || value > 100000)
                 {
-                    Console.WriteLine("У вас слишком много урона, для баланса мыуменьшим xd");
+                    Console.WriteLine("У вас слишком много урона, для баланса мы уменьшим xd");
                     damage = 100;
                 }
                 else
