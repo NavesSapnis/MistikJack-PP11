@@ -29,6 +29,10 @@ namespace PP_11
             this.damage = damage + bonusDamage;
         }
         public Dragon() { }
+        public Dragon(string name)
+        {
+            this.name = name;
+        }
         public override void PrintInfo()
         {
             Console.WriteLine($"Класс: Дракон\nИмя = {name}\nВозраст = {age}" +

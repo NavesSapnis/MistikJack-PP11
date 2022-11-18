@@ -34,6 +34,10 @@ namespace PP_11
         }
 
         public Troll() {}
+        public Troll(string name)
+        {
+            this.name = name;
+        }
 
         public override void PrintInfo()
         {

@@ -14,7 +14,7 @@ namespace PP_11
         public static int Menu()
         {
             Console.WriteLine("Выберите пункт меню\n1 - Выбрать Персонажа\n2 - Вывести характеристики персонажа" +
-                "\n3 - В БОЙ!\n4 - Зайти в магазин\n5 - Вывести массив уродцев\n6 - Найти максимальный/минимальный по урону\n7 - Отсортировать по имени");
+                "\n3 - В БОЙ!\n4 - Зайти в магазин\n\n\nДополнительный функционал по лабе\n\n5 - создать массив уродцев\n6 - найти максимальный/минимальный по урону\n7 - отсортировать по имен\n8 - вывести массив уродцев");
             int ret = Convert.ToInt32(Console.ReadLine());
             return ret;
         }
@@ -36,7 +36,10 @@ namespace PP_11
             ShopItems shopItems = new ShopItems();
             shopItems = shopItems.CreateShop();
 
-            AllClass allClass = new AllClass(enemies);
+
+            AllClass all = new AllClass(); 
+
+
             while (true)
             {
                 try
@@ -159,13 +162,38 @@ namespace PP_11
                             }
                             break;
                         case 5:
-                            
+                            Console.Clear();
+                            all = all.CreateArr();
+                            Console.WriteLine("Создано !");
                             break;
                         case 6:
-                            
-                            Console.WriteLine(allClass.MinDamage());
+                            Console.Clear();
+                            while (true)
+                            {
+                                Console.WriteLine("1 - максимальный по урону\n2 - минимальный по урону");
+                                choise = Convert.ToInt32(Console.ReadLine());
+                                switch (choise)
+                                {
+                                    case 1:
+                                        Console.Clear();
+                                        Console.WriteLine(all.MaxDamage()+"\n");
+                                        break;
+                                    case 2:
+                                        Console.Clear();
+                                        Console.WriteLine(all.MinDamage()+"\n");
+                                        break;
+                                }
+                                break;
+                            }
                             break;
                         case 7:
+                            all.SortByName();
+                            Console.Clear();
+                            Console.WriteLine("Отсортированно !");
+                            break;
+                        case 8:
+                            Console.Clear();
+                            all.PrintAll();
                             break;
                         default:
                             Console.Clear();

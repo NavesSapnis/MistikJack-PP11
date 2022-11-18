@@ -43,6 +43,7 @@ namespace PP_11
             this.money = money;
         }
         public Human() { }
+
         public override void PrintInfo()
         {
             Console.WriteLine($"Класс: Человек\nИмя = {name}\nФамилия = {secondName}\nВозраст = {age}" +

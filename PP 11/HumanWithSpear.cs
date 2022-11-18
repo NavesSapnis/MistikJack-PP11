@@ -22,7 +22,10 @@ namespace PP_11
             this.damage = damage + damageBySpear;
         }
         public HumanWithSpear() { }
-
+        public HumanWithSpear(string name)
+        {
+            this.name = name;
+        }
         public override void PrintInfo()
         {
             Console.WriteLine($"Класс: Крестьянин с копьем\nИмя = {name}\nФамилия = {secondName}\nВозраст = {age}" +

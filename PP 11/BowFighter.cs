@@ -38,6 +38,10 @@ namespace PP_11
             this.damage = damage + damageByBow;
         }
         public BowFighter() { }
+        public BowFighter(string name)
+        {
+            this.name = name;
+        }
         public override void PrintInfo()
         {
             Console.WriteLine($"Класс: Лучник\nИмя = {name}\nФамилия = {secondName}\nВозраст = {age}" +

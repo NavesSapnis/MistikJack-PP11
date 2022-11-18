@@ -50,7 +50,10 @@ namespace PP_11
             this.healPts = healPts + lightArmor;
         }
         public Knight() { }
-
+        public Knight(string name) 
+        {
+            this.name = name;
+        }
         public override void PrintInfo()
         {
             Console.WriteLine($"Класс: Рыцарь\nИмя = {name}\nФамилия = {secondName}\nВозраст = {age}" +

@@ -35,6 +35,10 @@ namespace PP_11
         }
 
         public Goblin() {}
+        public Goblin(string name)
+        {
+            this.name = name;
+        }
         public override void PrintInfo()
         {
             Console.WriteLine($"Класс: Гоблин\nИмя = {name}\nВозраст = {age}" +
